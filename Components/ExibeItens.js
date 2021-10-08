@@ -4,15 +4,17 @@ import Cartao from './Cartao'
 
 const ExibeItens = (props) => {
     return (
-        <View style={styles.valor}>
+        <View>
             <FlatList
                 data={props.lista}
                 renderItem={
                 lista => 
-                <Cartao style={styles.cartao}>
-                    <Text> Item: {lista.item.item}</Text>
-                    <Text> Fabricante: {lista.item.fabricante}</Text>
-                </Cartao>}
+                <View style={styles.valor}>
+                    <Cartao style={styles.cartao}>
+                        <Text> Item: {lista.item.item}</Text>
+                        <Text> Fabricante: {lista.item.fabricante}</Text>
+                    </Cartao>
+                </View>}
           />
             
         </View>

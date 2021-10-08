@@ -8,17 +8,14 @@ export default function App() {
   const [item, setItem] = useState('')
   const [fabricante, setFabricante] = useState('')
   const [lista, setLista] = useState([])
-  const getItem = (item) => {
-      setItem(item)
-  }
-  const getFabricante = (fabricante) => {
-    setFabricante(fabricante)
-  }
+
   const exibeItem = (item, fabricante) =>{
     setLista([...lista, {
       item: item,
       fabricante: fabricante
     }])
+    setItem('')
+    setFabricante('')
   }
   return (
     <View style={styles.container}>
@@ -26,9 +23,9 @@ export default function App() {
         <EntradaDeDados
           exibeItem={exibeItem}
           item={item}
-          getItem={getItem}
+          setItem={setItem}
           fabricante={fabricante}
-          getFabricante={getFabricante}
+          setFabricante={setFabricante}
         />
         {lista.length === 0 ? null :
           <ExibeItens lista={lista}></ExibeItens>
